@@ -1,7 +1,7 @@
 Duolingo: 6.54.5  
-Google-Photos: 7.59.0.856624550  
+Google-Photos: 7.63.0.869312946  
 Music: 8.10.52  
-Strava: 446.9  
+Strava: 450.9  
 YouTube: 20.14.43  
 
 Install [Microg](https://github.com/ReVanced/GmsCore/releases) for non-root YouTube and YT Music APKs  
