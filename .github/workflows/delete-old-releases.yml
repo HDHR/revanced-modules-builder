@@ -1,0 +1,53 @@
+name: Auto Delete Old Releases
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'   # Every Monday 00:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete old releases (keep latest 5)
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const keep = 5;
+
+            // Get all releases
+            const releases = await github.paginate(
+              github.rest.repos.listReleases,
+              { owner, repo, per_page: 100 }
+            );
+
+            if (releases.length <= keep) {
+              console.log("Nothing to delete.");
+              return;
+            }
+
+            // Sort newest → oldest
+            releases.sort((a, b) => 
+              new Date(b.published_at) - new Date(a.published_at)
+            );
+
+            // Select releases to delete
+            const toDelete = releases.slice(keep);
+
+            for (const release of toDelete) {
+              console.log(`Deleting release: ${release.name || release.tag_name}`);
+              await github.rest.repos.deleteRelease({
+                owner,
+                repo,
+                release_id: release.id
+              });
+            }
+
+            console.log("Cleanup completed.");
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
