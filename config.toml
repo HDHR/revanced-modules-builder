@@ -26,6 +26,7 @@ patcher-args = "-e 'Hide distractions' -Oupselling=true -Opromo=true"
 [Duolingo]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/duolingo/duolingo-duolingo"
 uptodown-dlurl = "https://duolingo.en.uptodown.com/android"
+build-mode = "module"
 included-patches = "'Skip energy recharge ads'"
 exclusive-patches = true
 
