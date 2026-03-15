@@ -1,5 +1,4 @@
 Duolingo: 6.54.5  
-Google-Photos: 7.67.0.882706237  
 Music: 8.40.54  
 Strava: 454.15  
 Twitter: 10.86.0-release.0  
