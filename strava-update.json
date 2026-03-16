@@ -1,6 +1,6 @@
 {
-  "version": "v454.15 (patches 6.0.0.rvp)",
-  "versionCode": 56,
-  "zipUrl": "https://github.com/HDHR/revanced-modules-builder/releases/download/56/strava-revanced-module-v454.15-all.zip",
+  "version": "v454.15 (patches 6.0.1.rvp)",
+  "versionCode": 57,
+  "zipUrl": "https://github.com/HDHR/revanced-modules-builder/releases/download/57/strava-revanced-module-v454.15-all.zip",
   "changelog": "https://raw.githubusercontent.com/HDHR/revanced-modules-builder/update/build.md"
 }
